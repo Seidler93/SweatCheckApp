@@ -22,7 +22,6 @@ class AuthService {
       const token = await AsyncStorage.getItem('id_token');
       return token;
     } catch (error) {
-      // Handle errors, e.g., logging or returning a default value
       console.error('Error getting token:', error);
       return null;
     }
@@ -31,11 +30,7 @@ class AuthService {
   async login(idToken) {
     try {
       await AsyncStorage.setItem('id_token', idToken);
-      // Navigate to the desired screen in your React Native app
-      // For example, you might use a navigation library like React Navigation
-      // navigation.navigate('Home'); // Replace 'Home' with your desired screen name
     } catch (error) {
-      // Handle errors, e.g., logging or showing an alert
       console.error('Error saving token:', error);
     }
   }
@@ -43,11 +38,9 @@ class AuthService {
   async logout() {
     try {
       await AsyncStorage.removeItem('id_token');
-      // Reload the app or navigate to the login screen
-      // For example, you might use a navigation library like React Navigation
-      // navigation.navigate('Login'); // Replace 'Login' with your login screen name
+      console.log(AsyncStorage.getItem('id_token'));
+
     } catch (error) {
-      // Handle errors, e.g., logging or showing an alert
       console.error('Error removing token:', error);
     }
   }
@@ -63,3 +56,5 @@ class AuthService {
 }
 
 export default new AuthService();
+
+

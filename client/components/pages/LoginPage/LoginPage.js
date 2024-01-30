@@ -1,15 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import LoginStyles from './LoginStyles';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../../utils/mutations'
 import Auth from '../../../utils/auth';
 
-const LoginForm = () => {
+const LoginForm = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [login, { loginError, loginData }] = useMutation(LOGIN_USER);
+
+  // useEffect(() => {
+  //   console.log(Auth.loggedIn());
+  //   Auth.loggedIn()
+  // }, []);
 
   const handleLogin = async () => {
     try {
@@ -27,6 +32,7 @@ const LoginForm = () => {
       if (data && data.login && data.login.token) {
         Auth.login(data.login.token);
         console.log('Login successful!');
+        navigation.navigate('Home')
       } else {
         setMessage('Login failed. Please try again.');
       }
@@ -36,7 +42,6 @@ const LoginForm = () => {
     }
   };
   
-
   return (
     <View style={LoginStyles.container}>
       <TextInput
