@@ -1,0 +1,19 @@
+{
+  "name": "sweatcheckapp",
+  "version": "1.0.0",
+  "description": "Sweat Check make with react native",
+  "main": "index.js",
+  "scripts": {
+    "start-server": "node server/server.js",
+    "start-client": "cd client && npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "start": "npx npm-run-all --parallel start-server start-client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
