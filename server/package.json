@@ -4,16 +4,29 @@
   "description": "Sweat Check make with react native",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "watch": "nodemon",
+    "seed": "node seeders/seed.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server-express": "^3.13.0",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "graphql": "^16.8.1",
-    "mongoose": "^8.1.1"
+    "@apollo/server": "^4.7.2",
+    "@graphql-tools/schema": "^10.0.2",
+    "bcrypt": "^5.0.0",
+    "express": "^4.17.2",
+    "graphql": "^16.6.0",
+    "graphql-subscriptions": "^2.0.0",
+    "graphql-ws": "^5.14.3",
+    "graphql-yoga": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.2",
+    "stripe": "^14.7.0",
+    "subscriptions-transport-ws": "^0.11.0",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
